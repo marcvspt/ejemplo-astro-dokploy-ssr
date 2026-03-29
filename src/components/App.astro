@@ -1,0 +1,19 @@
+---
+import PokemonCard from "@/components/PokemonCard.astro";
+import PokemonSearchForm from "@/components/PokemonSearchForm.astro";
+---
+
+<main class="min-h-screen bg-page-bg px-4 py-10">
+    <section
+        class="mx-auto w-full max-w-2xl rounded-2xl bg-surface p-6 shadow-lg ring-1 ring-border sm:p-8"
+    >
+        <PokemonSearchForm />
+        <PokemonCard />
+    </section>
+</main>
+
+<script>
+    import { initPokemonFinder } from "@/scripts/utils.ts";
+
+    initPokemonFinder();
+</script>

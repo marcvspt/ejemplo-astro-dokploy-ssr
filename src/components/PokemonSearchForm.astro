@@ -1,0 +1,25 @@
+<h1 class="text-3xl font-bold tracking-tight text-text-primary">
+    Pokemon Finder
+</h1>
+<p class="mt-2 text-sm text-text-secondary">
+    Escribe el nombre o numero de un Pokemon para ver su informacion basica.
+</p>
+
+<form id="pokemon-form" class="mt-6 flex flex-col gap-3 sm:flex-row">
+    <input
+        id="pokemon-input"
+        type="text"
+        name="pokemon"
+        required
+        placeholder="Ej: pikachu o 25"
+        class="w-full rounded-xl border border-border-strong px-4 py-3 text-text-primary outline-none transition focus:border-input-focus focus:ring-2 focus:ring-input-focus-ring"
+    />
+    <button
+        type="submit"
+        class="rounded-xl bg-brand px-5 py-3 font-semibold text-text-inverse transition hover:bg-brand-hover focus:outline-none focus:ring-2 focus:ring-brand-focus"
+    >
+        Buscar
+    </button>
+</form>
+
+<p id="status" class="mt-4 text-sm text-text-secondary"></p>

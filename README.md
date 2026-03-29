@@ -1,43 +1,70 @@
-# Astro Starter Kit: Minimal
+# Pokemon Finderw (Astro + Tailwind)
+
+Aplicacion SSR en Astro para buscar Pokemon por nombre o numero. El frontend consulta un endpoint interno y ese endpoint se comunica con PokeAPI.
+
+> Este proyecto se realizó como un ejemplo para desplegar aplicaciones web de Astro con SSR en Dokploy.
+
+## Desplegar para desarrollo
+
+1. Instalar dependencias:
+
+```bash
+pnpm install
+```
+
+2. Inicia el servidor de desarrollo:
 
 ```sh
-pnpm create astro@latest -- --template minimal
+pnpm run dev #http://localhost:4321
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## API
 
-## 🚀 Project Structure
+### 1) Health
 
-Inside of your Astro project, you'll see the following folders and files:
+- Ruta: `/api/health`
+- Método: `GET`
+- Respuesta:
+
+```json
+{
+  "status": "ok"
+}
+```
+
+
+### 2) Obtener información de Pokemon
+
+- Ruta: `/api/pokemon?q=<nombrePokemon|idPokemon>`
+- Método: `GET`
+- Query params:
+  - `q` (requerido): nombre o ID de Pokemon.
+
+Respuestas de error comunes:
+
+- 400: falta query.
+- 404: Pokemon no encontrado.
+- 500: error consultando PokeAPI.
+
+## Estructura del proyecto
 
 ```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+src/
+├─ components/
+│  ├─ App.astro
+│  ├─ PokemonCard.astro
+│  ├─ PokemonSearchForm.astro
+│  └─ PokemonStatItem.astro
+├─ layouts/
+│  └─ BaseLayout.astro
+├─ pages/
+│  ├─ api/
+│  │  ├─ health.ts
+│  │  └─ pokemon.ts
+│  └─ index.astro
+├─ scripts/
+│  ├─ types.ts
+│  └─ utils.ts
+└─ styles/
+   └─ global.css
 ```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

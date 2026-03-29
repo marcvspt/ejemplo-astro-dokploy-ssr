@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+	--color-page-bg: var(--color-slate-100);
+	--color-surface: var(--color-white);
+	--color-surface-muted: var(--color-slate-50);
+	--color-border: var(--color-slate-200);
+	--color-border-strong: var(--color-slate-300);
+
+	--color-text-primary: var(--color-slate-900);
+	--color-text-secondary: var(--color-slate-600);
+	--color-text-body: var(--color-slate-700);
+	--color-text-muted: var(--color-slate-500);
+	--color-text-inverse: var(--color-white);
+
+	--color-brand: var(--color-sky-600);
+	--color-brand-hover: var(--color-sky-700);
+	--color-brand-focus: var(--color-sky-300);
+	--color-input-focus: var(--color-sky-500);
+	--color-input-focus-ring: var(--color-sky-200);
+}
